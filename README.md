@@ -29,6 +29,6 @@ The robot's 3D printable components are provided as STL files:
 
 - [`Base.stl`](./Base.stl) – Main chassis of the robot.
 - [`Roof.stl`](./Roof.stl) – Top layer base for lidar 
-- [`Piece3.2.STL`](./Piece3.2.STL) – Additional mounting or structural component used to connect Lidar. 
+- [`Piece3.2.STL`](./Piece3.2.STL) – Additional mounting or structural component to connect Lidar. 
 
 These files can be opened in any CAD software or slicer (e.g., FreeCAD, Cura, PrusaSlicer, Bambu Studio) for viewing, modification, or 3D printing.
