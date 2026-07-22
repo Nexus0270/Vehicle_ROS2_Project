@@ -4,6 +4,8 @@ This repository contains setup guides for configuring a 3D mapping and SLAM pipe
 
 The hardware stack utilizes an Intel RealSense D455 and a YDLidar X2, operating without wheel encoders by relying on visual odometry. It also includes the underlying firmware, calibration utilities, and teleoperation scripts for the robot's Arduino-controlled mecanum drive base.
 
+**File:** [`Physical Robot Image`](./Robot.jpeg)
+
 ## Documentation & Code
 
 ### 1. Hardware & Sensor Setup
