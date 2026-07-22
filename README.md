@@ -22,3 +22,13 @@ This guide covers the visual SLAM and voxel map generation pipeline:
 * Configuring RTAB-Map for visual odometry (`rgbd_odometry`) and lidar-assisted SLAM fusion.
 * Installing and configuring Intel's FastMapping package for 3D OctoMap generation.
 * Visualizing the complete pipeline (PointClouds, OccupancyGrids, and MarkerArrays) in RViz2.
+
+### 2. Robot 3D Model
+
+The robot's 3D printable components are provided as STL files:
+
+- [`Base.stl`](./Base.stl) – Main chassis of the robot.
+- [`Roof.stl`](./Roof.stl) – Top layer base for lidar 
+- [`Piece3.2.STL`](./Piece3.2.STL) – Additional mounting or structural component used in the robot assembly.
+
+These files can be opened in any CAD software or slicer (e.g., FreeCAD, Cura, PrusaSlicer, Bambu Studio) for viewing, modification, or 3D printing.
