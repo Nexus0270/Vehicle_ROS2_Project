@@ -1,0 +1,8 @@
+[    0.0s] === run started 20260723_041425 ===
+[   11.9s] CAMERA/LIDAR DISAGREE - lidar=2.36 m  camera=0.44 m  delta=-1.92 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   37.9s] CAMERA/LIDAR DISAGREE - lidar=3.47 m  camera=0.54 m  delta=-2.94 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   38.4s] CAMERA/LIDAR DISAGREE - lidar=3.47 m  camera=0.54 m  delta=-2.94 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   38.9s] CAMERA/LIDAR DISAGREE - lidar=3.47 m  camera=0.54 m  delta=-2.93 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   39.4s] CAMERA/LIDAR DISAGREE - lidar=3.47 m  camera=0.54 m  delta=-2.93 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   39.9s] CAMERA/LIDAR DISAGREE - lidar=3.48 m  camera=0.54 m  delta=-2.94 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   40.4s] CAMERA/LIDAR DISAGREE - lidar=3.48 m  camera=0.59 m  delta=-2.89 m  CAMERA SEES CLOSER - lidar may be missing this obstacle

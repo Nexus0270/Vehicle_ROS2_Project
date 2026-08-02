@@ -1,0 +1,3 @@
+[    0.0s] === run started 20260728_185111 ===
+[  162.8s] *** OBSTACLE DETECTED - ROBOT AUTO-STOPPED *** (stop #1) obstacle at 0.13 m while moving, camera cross-check 0.59 m
+[  167.1s] --- path clear - robot allowed to move again ---

@@ -1,0 +1,43 @@
+[    0.0s] === run started 20260723_084132 ===
+[    1.6s] CAMERA/LIDAR DISAGREE - lidar=1.64 m  camera=0.72 m  delta=-0.92 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[    2.1s] CAMERA/LIDAR DISAGREE - lidar=1.66 m  camera=0.71 m  delta=-0.95 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[    2.5s] *** OBSTACLE DETECTED - ROBOT AUTO-STOPPED *** (stop #1) obstacle at unknown range while moving, camera cross-check 0.71 m
+[    2.6s] CAMERA/LIDAR DISAGREE - lidar=1.55 m  camera=0.71 m  delta=-0.84 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[    3.1s] CAMERA/LIDAR DISAGREE - lidar=1.06 m  camera=0.71 m  delta=-0.36 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[    3.2s] --- path clear - robot allowed to move again ---
+[    6.1s] CAMERA/LIDAR DISAGREE - lidar=1.47 m  camera=1.22 m  delta=-0.25 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   66.9s] *** OBSTACLE DETECTED - ROBOT AUTO-STOPPED *** (stop #2) obstacle at 0.72 m while rotating left, camera cross-check 0.96 m
+[   67.0s] --- path clear - robot allowed to move again ---
+[   67.2s] *** OBSTACLE DETECTED - ROBOT AUTO-STOPPED *** (stop #3) obstacle at 0.11 m while rotating left, camera cross-check 0.96 m
+[   67.2s] --- path clear - robot allowed to move again ---
+[  101.6s] *** OBSTACLE DETECTED - ROBOT AUTO-STOPPED *** (stop #4) obstacle at 0.11 m while driving backward, camera cross-check 1.19 m
+[  101.7s] --- path clear - robot allowed to move again ---
+[  108.4s] *** OBSTACLE DETECTED - ROBOT AUTO-STOPPED *** (stop #5) obstacle at 0.41 m while driving forward, camera cross-check 0.57 m
+[  108.8s] --- path clear - robot allowed to move again ---
+[  109.0s] *** OBSTACLE DETECTED - ROBOT AUTO-STOPPED *** (stop #6) obstacle at 0.32 m while driving forward, camera cross-check 0.40 m
+[  109.8s] --- path clear - robot allowed to move again ---
+[  109.9s] *** OBSTACLE DETECTED - ROBOT AUTO-STOPPED *** (stop #7) obstacle at 0.32 m while driving forward, camera cross-check 0.37 m
+[  115.8s] --- path clear - robot allowed to move again ---
+[  128.3s] *** OBSTACLE DETECTED - ROBOT AUTO-STOPPED *** (stop #8) obstacle at 0.11 m while driving backward, camera cross-check 1.28 m
+[  128.4s] --- path clear - robot allowed to move again ---
+[  130.1s] *** OBSTACLE DETECTED - ROBOT AUTO-STOPPED *** (stop #9) obstacle at 0.60 m while driving backward, camera cross-check 0.92 m
+[  130.1s] --- path clear - robot allowed to move again ---
+[  130.6s] *** OBSTACLE DETECTED - ROBOT AUTO-STOPPED *** (stop #10) obstacle at 0.63 m while driving backward, camera cross-check 0.96 m
+[  130.8s] --- path clear - robot allowed to move again ---
+[  131.3s] *** OBSTACLE DETECTED - ROBOT AUTO-STOPPED *** (stop #11) obstacle at 0.11 m while driving backward, camera cross-check 1.00 m
+[  131.3s] --- path clear - robot allowed to move again ---
+[  132.6s] *** OBSTACLE DETECTED - ROBOT AUTO-STOPPED *** (stop #12) obstacle at 0.99 m while driving backward, camera cross-check 1.37 m
+[  132.6s] --- path clear - robot allowed to move again ---
+[  135.7s] *** OBSTACLE DETECTED - ROBOT AUTO-STOPPED *** (stop #13) obstacle at 0.11 m while driving backward, camera cross-check 1.66 m
+[  135.8s] --- path clear - robot allowed to move again ---
+[  136.2s] *** OBSTACLE DETECTED - ROBOT AUTO-STOPPED *** (stop #14) obstacle at 1.13 m while driving backward, camera cross-check 1.53 m
+[  136.3s] --- path clear - robot allowed to move again ---
+[  136.4s] *** OBSTACLE DETECTED - ROBOT AUTO-STOPPED *** (stop #15) obstacle at 1.15 m while driving backward, camera cross-check 1.53 m
+[  136.5s] --- path clear - robot allowed to move again ---
+[  136.8s] *** OBSTACLE DETECTED - ROBOT AUTO-STOPPED *** (stop #16) obstacle at 1.21 m while driving backward, camera cross-check 1.52 m
+[  136.9s] --- path clear - robot allowed to move again ---
+[  168.6s] CAMERA/LIDAR DISAGREE - lidar=2.20 m  camera=1.19 m  delta=-1.01 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  169.1s] CAMERA/LIDAR DISAGREE - lidar=4.41 m  camera=1.02 m  delta=-3.39 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  169.6s] CAMERA/LIDAR DISAGREE - lidar=5.38 m  camera=0.80 m  delta=-4.58 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  170.1s] CAMERA/LIDAR DISAGREE - lidar=4.06 m  camera=0.50 m  delta=-3.55 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  388.4s] === run ended - 16 auto-stop events ===

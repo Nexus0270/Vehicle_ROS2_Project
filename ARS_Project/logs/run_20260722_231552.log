@@ -1,0 +1,9 @@
+[    0.0s] === run started 20260722_231552 ===
+[    3.0s] CAMERA/LIDAR DISAGREE - lidar=3.16 m  camera=2.20 m  delta=-0.96 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[    3.5s] CAMERA/LIDAR DISAGREE - lidar=3.17 m  camera=2.21 m  delta=-0.95 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[    4.0s] CAMERA/LIDAR DISAGREE - lidar=1.17 m  camera=0.97 m  delta=-0.21 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[    7.8s] BLOCK #1 - auto-stop fired at 0.11 m
+[   11.5s] CLEAR - motion allowed again
+[   12.0s] CAMERA/LIDAR DISAGREE - lidar=3.16 m  camera=2.21 m  delta=-0.96 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   12.5s] CAMERA/LIDAR DISAGREE - lidar=3.16 m  camera=2.21 m  delta=-0.95 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   14.4s] === run ended - 1 auto-stop events ===

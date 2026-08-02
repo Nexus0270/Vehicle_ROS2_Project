@@ -1,0 +1,3 @@
+[    0.0s] === run started 20260723_043321 ===
+[   22.1s] CAMERA/LIDAR DISAGREE - lidar=0.70 m  camera=0.50 m  delta=-0.21 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   22.6s] CAMERA/LIDAR DISAGREE - lidar=0.69 m  camera=0.48 m  delta=-0.20 m  CAMERA SEES CLOSER - lidar may be missing this obstacle

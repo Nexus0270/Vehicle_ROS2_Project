@@ -1,0 +1,26 @@
+# ARS robot — stable device names for the two USB-serial devices.
+#
+# WHY: both the Arduino Mega and the YDLidar X2 enumerate as /dev/ttyUSB*, and
+# the number depends on plug order and boot timing. Without these rules the
+# lidar driver can end up opening the Arduino (spraying lidar commands at the
+# motor controller) or vice versa. Always refer to the symlinks below, never
+# to a raw ttyUSB number.
+#
+# Install:
+#   sudo cp 99-ars-robot.rules /etc/udev/rules.d/
+#   sudo udevadm control --reload-rules && sudo udevadm trigger
+# Verify:
+#   ls -l /dev/arduino /dev/ydlidar
+
+# Arduino Mega 2560 clone — CH340 USB-serial bridge.
+# NOTE: this CH340 exposes no unique iSerial, so it is matched by chip ID
+# alone. If the lidar's adapter also turns out to be a CH340 (1a86:7523) this
+# rule becomes ambiguous, and both devices must instead be bound by physical
+# USB port path (KERNELS=="3-1.3" style). Check before trusting it.
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", SYMLINK+="arduino", MODE="0666"
+
+# YDLidar X2 — CP2102 USB-serial bridge (the adapter shipped with the X2).
+# Not yet verified against the actual hardware: the lidar had not enumerated
+# when this file was written. If the X2's adapter reports different IDs, read
+# them with:  udevadm info -q property -n /dev/ttyUSBx | grep ID_
+SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", SYMLINK+="ydlidar", MODE="0666"

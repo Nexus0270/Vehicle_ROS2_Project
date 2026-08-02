@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<!--
+  ARS mecanum robot description.
+
+  WHY THIS EXISTS
+    Before this file, laser_frame had TWO parents: ydlidar_launch.py published
+    a static base_link -> laser_frame, while the SLAM guide's Terminal 1
+    published camera_link -> laser_frame. A TF frame may only have one parent,
+    so whichever static message landed last won, a startup race. When
+    base_link won, laser_frame hung off a root that nothing connected to
+    odom/map, RTAB-Map could not transform the scan, and it logged
+    "Could not convert laser scan msg! Aborting rtabmap update..." (1246 times
+    in one run) while silently DISCARDING those frames from the map.
+
+    This file makes base_link the single root and hangs both sensors off it,
+    so there is exactly one path to every frame. Once you launch with
+    description.launch.py, do NOT also run the guide's Terminal 1 static
+    transform, and use the ydlidar driver node directly rather than
+    ydlidar_launch.py (see bringup.launch.py), because both of those publish
+    conflicting transforms this file replaces.
+
+  TF TREE PRODUCED
+    map -> odom              (RTAB-Map)
+      odom -> base_link      (serial_bridge, from wheel encoders)
+        base_link -> laser_frame
+        base_link -> camera_link
+        base_link -> {fl,fr,rl,rr}_wheel_link
+
+  !! MEASURE THESE ON THE REAL CHASSIS !!
+    Every length below marked MEASURE is a placeholder. They do not affect
+    whether the stack runs, but they do affect odometry accuracy and how well
+    the scan lines up with the camera, so replace them before you map for
+    real.
+-->
+<robot name="ars_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- ============================ dimensions ============================ -->
+  <!-- Wheel geometry comes from encoder_calibration.ino - keep in sync. -->
+  <xacro:property name="wheel_diameter" value="0.095"/>
+  <xacro:property name="wheel_width"    value="0.040"/>   <!-- MEASURE -->
+
+  <!-- Axle-to-axle and left-to-right wheel separation. These two must match
+       wheel_separation_x / wheel_separation_y in config/ars_base.yaml, or
+       odometry and the URDF will disagree about the robot's shape. -->
+  <xacro:property name="sep_x" value="0.20"/>             <!-- MEASURE -->
+  <xacro:property name="sep_y" value="0.20"/>             <!-- MEASURE -->
+
+  <!-- Chassis body, for visualisation and footprint only. -->
+  <xacro:property name="body_x" value="0.30"/>            <!-- MEASURE -->
+  <xacro:property name="body_y" value="0.20"/>            <!-- MEASURE -->
+  <xacro:property name="body_z" value="0.06"/>            <!-- MEASURE -->
+
+  <!-- Sensor mounting, measured from base_link (chassis centre, at the
+       height of the wheel axles). The lidar values below are the ones the
+       old static_transform_publisher was using; the camera values are a
+       guess and definitely need measuring. -->
+  <xacro:property name="lidar_x" value="0.00"/>           <!-- MEASURE -->
+  <xacro:property name="lidar_y" value="0.00"/>           <!-- MEASURE -->
+  <xacro:property name="lidar_z" value="0.09"/>           <!-- MEASURE -->
+
+  <!-- MEASURED 2026-07-22: the X2 is physically mounted facing BACKWARDS.
+       Verified by placing an object in front of the robot and reading the
+       bearing the lidar reported: -170 deg, consistent over 186 of 231
+       samples. Without this the whole stack protects and maps the wrong end
+       of the robot - the safety guard refused to drive forward (checking the
+       cluttered rear) while happily reversing into things, and SLAM built the
+       map 180 deg out. Re-measure this if the lidar is ever remounted. -->
+  <xacro:property name="lidar_yaw" value="${pi}"/>
+
+  <xacro:property name="camera_x" value="0.10"/>          <!-- MEASURE -->
+  <xacro:property name="camera_y" value="0.00"/>          <!-- MEASURE -->
+  <xacro:property name="camera_z" value="0.05"/>          <!-- MEASURE -->
+
+  <material name="grey">  <color rgba="0.4 0.4 0.4 1.0"/></material>
+  <material name="black"> <color rgba="0.1 0.1 0.1 1.0"/></material>
+  <material name="blue">  <color rgba="0.2 0.4 0.9 1.0"/></material>
+
+  <!-- ============================== chassis ============================= -->
+  <!-- base_link sits at the centre of the chassis, at axle height, so the
+       wheel origins are symmetric about it. -->
+  <link name="base_link">
+    <visual>
+      <geometry><box size="${body_x} ${body_y} ${body_z}"/></geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <geometry><box size="${body_x} ${body_y} ${body_z}"/></geometry>
+    </collision>
+  </link>
+
+  <!-- Nav2 and the costmaps expect a ground-projected frame. -->
+  <link name="base_footprint"/>
+  <joint name="base_footprint_joint" type="fixed">
+    <parent link="base_link"/>
+    <child  link="base_footprint"/>
+    <origin xyz="0 0 ${-wheel_diameter/2}" rpy="0 0 0"/>
+  </joint>
+
+  <!-- =============================== wheels ============================= -->
+  <!-- Continuous joints so RViz can spin them. serial_bridge publishes the
+       four joint angles straight from the encoders, which is why this stack
+       needs no joint_state_publisher. -->
+  <xacro:macro name="wheel" params="name x y">
+    <link name="${name}_wheel_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+        <geometry>
+          <cylinder radius="${wheel_diameter/2}" length="${wheel_width}"/>
+        </geometry>
+        <material name="black"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+        <geometry>
+          <cylinder radius="${wheel_diameter/2}" length="${wheel_width}"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${name}_wheel_joint" type="continuous">
+      <parent link="base_link"/>
+      <child  link="${name}_wheel_link"/>
+      <origin xyz="${x} ${y} 0" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+    </joint>
+  </xacro:macro>
+
+  <!-- +y is LEFT (REP-103), so the left wheels take +sep_y/2. -->
+  <xacro:wheel name="fl" x="${ sep_x/2}" y="${ sep_y/2}"/>
+  <xacro:wheel name="fr" x="${ sep_x/2}" y="${-sep_y/2}"/>
+  <xacro:wheel name="rl" x="${-sep_x/2}" y="${ sep_y/2}"/>
+  <xacro:wheel name="rr" x="${-sep_x/2}" y="${-sep_y/2}"/>
+
+  <!-- =============================== lidar ============================== -->
+  <!-- Must stay named laser_frame: that is the frame_id the ydlidar driver
+       stamps into /scan (params/ydlidar.yaml), and RTAB-Map looks the scan's
+       own frame_id up in TF. -->
+  <link name="laser_frame">
+    <visual>
+      <geometry><cylinder radius="0.035" length="0.030"/></geometry>
+      <material name="blue"/>
+    </visual>
+  </link>
+  <joint name="laser_joint" type="fixed">
+    <parent link="base_link"/>
+    <child  link="laser_frame"/>
+    <origin xyz="${lidar_x} ${lidar_y} ${lidar_z}" rpy="0 0 ${lidar_yaw}"/>
+  </joint>
+
+  <!-- ============================== camera ============================== -->
+  <!-- camera_link is the RealSense wrapper's own base frame; it publishes
+       its optical frames underneath this automatically, so we only need to
+       place camera_link itself. -->
+  <link name="camera_link">
+    <visual>
+      <geometry><box size="0.025 0.090 0.025"/></geometry>
+      <material name="black"/>
+    </visual>
+  </link>
+  <joint name="camera_joint" type="fixed">
+    <parent link="base_link"/>
+    <child  link="camera_link"/>
+    <origin xyz="${camera_x} ${camera_y} ${camera_z}" rpy="0 0 0"/>
+  </joint>
+
+</robot>

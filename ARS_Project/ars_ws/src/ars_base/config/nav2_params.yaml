@@ -1,0 +1,269 @@
+# =============================================================================
+#  Nav2 parameters for the ARS mecanum robot (EFB2063)
+#
+#  THE ONE THING THAT MAKES THIS DIFFERENT FROM EVERY NAV2 TUTORIAL:
+#  this robot is HOLONOMIC. A mecanum base can strafe, so the controller is
+#  allowed a non-zero vy. Almost every Nav2 example online is for a
+#  differential base and pins vy to 0 -- copying one of those gives you a
+#  robot that laboriously turns to face every waypoint and never uses the
+#  mecanum wheels at all. The settings that matter are min_vel_y / max_vel_y
+#  and vy_samples in the controller block below.
+#
+#  LOCALISATION: there is deliberately no amcl or map_server here. RTAB-Map
+#  is already doing SLAM and publishing both the occupancy grid
+#  (/rtabmap/map) and the map->odom transform, so adding AMCL would mean two
+#  nodes fighting to publish map->odom. Launch mapping.launch.py first.
+#
+#  VELOCITIES are deliberately conservative for a lab demo. They must stay
+#  below what the base can actually deliver: max_wheel_speed in
+#  ars_base.yaml is the ceiling, and a diagonal move combines vx and vy, so
+#  keep sqrt(max_vel_x^2 + max_vel_y^2) + rotation headroom under it.
+# =============================================================================
+
+controller_server:
+  ros__parameters:
+    controller_frequency: 20.0
+    min_x_velocity_threshold: 0.001
+    min_y_velocity_threshold: 0.001
+    min_theta_velocity_threshold: 0.001
+    failure_tolerance: 0.3
+
+    # Our serial_bridge subscribes to plain Twist. If you flip this to true,
+    # also set use_stamped_cmd_vel:=true in ars_base.yaml or the topic will
+    # silently never connect.
+    enable_stamped_cmd_vel: false
+
+    progress_checker_plugin: "progress_checker"
+    goal_checker_plugins: ["general_goal_checker"]
+    controller_plugins: ["FollowPath"]
+
+    progress_checker:
+      plugin: "nav2_controller::SimpleProgressChecker"
+      required_movement_radius: 0.5
+      movement_time_allowance: 10.0
+
+    general_goal_checker:
+      plugin: "nav2_controller::SimpleGoalChecker"
+      xy_goal_tolerance: 0.15
+      yaw_goal_tolerance: 0.20
+      stateful: True
+
+    FollowPath:
+      plugin: "dwb_core::DWBLocalPlanner"
+      debug_trajectory_details: True
+
+      # ---- HOLONOMIC velocity envelope -----------------------------------
+      min_vel_x: -0.20
+      max_vel_x: 0.20
+      min_vel_y: -0.20          # non-zero => strafing allowed
+      max_vel_y: 0.20
+      max_vel_theta: 1.0
+      min_speed_xy: 0.0
+      max_speed_xy: 0.28        # cap on the combined vx/vy vector
+      min_speed_theta: 0.0
+
+      acc_lim_x: 1.0
+      acc_lim_y: 1.0
+      acc_lim_theta: 2.0
+      decel_lim_x: -1.0
+      decel_lim_y: -1.0
+      decel_lim_theta: -2.0
+
+      # vy_samples MUST be > 1 or DWB never considers a lateral velocity,
+      # which silently reduces the robot to differential drive.
+      vx_samples: 20
+      vy_samples: 10
+      vtheta_samples: 20
+
+      sim_time: 1.5
+      linear_granularity: 0.05
+      angular_granularity: 0.025
+      transform_tolerance: 0.2
+      trajectory_generator_name: "dwb_plugins::StandardTrajectoryGenerator"
+
+      critics: ["RotateToGoal", "Oscillation", "BaseObstacle", "GoalAlign",
+                "PathAlign", "PathDist", "GoalDist"]
+      BaseObstacle.scale: 0.02
+      PathAlign.scale: 32.0
+      PathAlign.forward_point_distance: 0.1
+      GoalAlign.scale: 24.0
+      GoalAlign.forward_point_distance: 0.1
+      PathDist.scale: 32.0
+      GoalDist.scale: 24.0
+      # A holonomic base can reach a pose without pirouetting first, so the
+      # heading critics are weighted down relative to a differential setup.
+      RotateToGoal.scale: 16.0
+      RotateToGoal.slowing_factor: 5.0
+      RotateToGoal.lookahead_time: -1.0
+      Oscillation.scale: 1.0
+
+local_costmap:
+  local_costmap:
+    ros__parameters:
+      update_frequency: 5.0
+      publish_frequency: 2.0
+      global_frame: odom
+      robot_base_frame: base_link
+      rolling_window: true
+      width: 3
+      height: 3
+      resolution: 0.05
+
+      # Circular footprint: a mecanum base can move sideways at any moment,
+      # so a rectangular footprint gives no safety benefit and costs CPU.
+      # Set this to your measured half-diagonal plus a small margin.
+      robot_radius: 0.22
+
+      plugins: ["obstacle_layer", "inflation_layer"]
+
+      obstacle_layer:
+        plugin: "nav2_costmap_2d::ObstacleLayer"
+        enabled: True
+        observation_sources: scan
+        scan:
+          topic: /scan
+          max_obstacle_height: 2.0
+          clearing: True
+          marking: True
+          data_type: "LaserScan"
+          raytrace_max_range: 8.0
+          raytrace_min_range: 0.0
+          obstacle_max_range: 6.0
+          obstacle_min_range: 0.0
+
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        cost_scaling_factor: 3.0
+        inflation_radius: 0.45
+
+      always_send_full_costmap: True
+
+global_costmap:
+  global_costmap:
+    ros__parameters:
+      update_frequency: 1.0
+      publish_frequency: 1.0
+      global_frame: map
+      robot_base_frame: base_link
+      robot_radius: 0.22
+      resolution: 0.05
+      track_unknown_space: true
+
+      plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
+
+      static_layer:
+        plugin: "nav2_costmap_2d::StaticLayer"
+        # RTAB-Map's grid, not a map_server one. It is published latched, so
+        # transient_local is required or the costmap waits forever.
+        map_topic: /rtabmap/map
+        map_subscribe_transient_local: True
+
+      obstacle_layer:
+        plugin: "nav2_costmap_2d::ObstacleLayer"
+        enabled: True
+        observation_sources: scan
+        scan:
+          topic: /scan
+          max_obstacle_height: 2.0
+          clearing: True
+          marking: True
+          data_type: "LaserScan"
+          raytrace_max_range: 8.0
+          obstacle_max_range: 6.0
+
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        cost_scaling_factor: 3.0
+        inflation_radius: 0.45
+
+      always_send_full_costmap: True
+
+planner_server:
+  ros__parameters:
+    expected_planner_frequency: 1.0
+    planner_plugins: ["GridBased"]
+    GridBased:
+      plugin: "nav2_navfn_planner::NavfnPlanner"
+      tolerance: 0.5
+      use_astar: false
+      # Holonomic, so the planner does not need to respect a turning radius;
+      # NavFn's grid paths are directly followable by this base.
+      allow_unknown: true
+
+smoother_server:
+  ros__parameters:
+    smoother_plugins: ["simple_smoother"]
+    simple_smoother:
+      plugin: "nav2_smoother::SimpleSmoother"
+      tolerance: 1.0e-10
+      max_its: 1000
+      do_refinement: True
+
+behavior_server:
+  ros__parameters:
+    local_costmap_topic: local_costmap/costmap_raw
+    global_costmap_topic: global_costmap/costmap_raw
+    local_footprint_topic: local_costmap/published_footprint
+    global_footprint_topic: global_costmap/published_footprint
+    cycle_frequency: 10.0
+    behavior_plugins: ["spin", "backup", "drive_on_heading", "wait", "assisted_teleop"]
+    spin:
+      plugin: "nav2_behaviors::Spin"
+    backup:
+      plugin: "nav2_behaviors::BackUp"
+    drive_on_heading:
+      plugin: "nav2_behaviors::DriveOnHeading"
+    wait:
+      plugin: "nav2_behaviors::Wait"
+    assisted_teleop:
+      plugin: "nav2_behaviors::AssistedTeleop"
+    local_frame: odom
+    global_frame: map
+    robot_base_frame: base_link
+    transform_tolerance: 0.2
+    simulate_ahead_time: 2.0
+    max_rotational_vel: 1.0
+    min_rotational_vel: 0.4
+    rotational_acc_lim: 2.0
+    enable_stamped_cmd_vel: false
+
+bt_navigator:
+  ros__parameters:
+    global_frame: map
+    robot_base_frame: base_link
+    odom_topic: /odom
+    bt_loop_duration: 10
+    default_server_timeout: 20
+    navigators: ["navigate_to_pose", "navigate_through_poses"]
+    navigate_to_pose:
+      plugin: "nav2_bt_navigator::NavigateToPoseNavigator"
+    navigate_through_poses:
+      plugin: "nav2_bt_navigator::NavigateThroughPosesNavigator"
+
+waypoint_follower:
+  ros__parameters:
+    loop_rate: 20
+    stop_on_failure: false
+    action_server_result_timeout: 900.0
+    waypoint_task_executor_plugin: "wait_at_waypoint"
+    wait_at_waypoint:
+      plugin: "nav2_waypoint_follower::WaitAtWaypoint"
+      enabled: True
+      waypoint_pause_duration: 200
+
+velocity_smoother:
+  ros__parameters:
+    smoothing_frequency: 20.0
+    scale_velocities: False
+    feedback: "OPEN_LOOP"
+    # Three-element vectors are [x, y, theta]. The y entry is what keeps
+    # strafing smooth; a differential-drive config would have 0.0 here.
+    max_velocity: [0.20, 0.20, 1.0]
+    min_velocity: [-0.20, -0.20, -1.0]
+    max_accel: [1.0, 1.0, 2.0]
+    max_decel: [-1.0, -1.0, -2.0]
+    odom_topic: "odom"
+    odom_duration: 0.1
+    deadband_velocity: [0.0, 0.0, 0.0]
+    velocity_timeout: 1.0
+    enable_stamped_cmd_vel: false

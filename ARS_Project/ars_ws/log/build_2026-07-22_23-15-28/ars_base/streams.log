@@ -1,0 +1,23 @@
+[1.260s] Invoking command in '/home/ty/ARS_Project/ars_ws/build/ars_base': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/ty/ARS_Project/ars_ws/build/ars_base/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ty/ARS_Project/ars_ws/install/ars_base/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ty/ARS_Project/ars_ws/build/ars_base/build --no-deps symlink_data
+[1.629s] running develop
+[1.831s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:363: UserWarning: Unbuilt egg for pytest-repeat [unknown version] (/usr/lib/python3/dist-packages)
+[1.831s]   self.local_index = Environment(self.shadow_path + sys.path)
+[1.871s] running egg_info
+[1.893s] writing ars_base.egg-info/PKG-INFO
+[1.893s] writing dependency_links to ars_base.egg-info/dependency_links.txt
+[1.893s] writing entry points to ars_base.egg-info/entry_points.txt
+[1.893s] writing requirements to ars_base.egg-info/requires.txt
+[1.894s] writing top-level names to ars_base.egg-info/top_level.txt
+[1.939s] reading manifest file 'ars_base.egg-info/SOURCES.txt'
+[1.940s] writing manifest file 'ars_base.egg-info/SOURCES.txt'
+[1.965s] running build_ext
+[1.965s] Creating /home/ty/ARS_Project/ars_ws/install/ars_base/lib/python3.12/site-packages/ars-base.egg-link (link to .)
+[1.965s] Installing event_logger script to /home/ty/ARS_Project/ars_ws/install/ars_base/lib/ars_base
+[1.965s] Installing obstacle_verifier script to /home/ty/ARS_Project/ars_ws/install/ars_base/lib/ars_base
+[1.966s] Installing safety_guard script to /home/ty/ARS_Project/ars_ws/install/ars_base/lib/ars_base
+[1.966s] Installing serial_bridge script to /home/ty/ARS_Project/ars_ws/install/ars_base/lib/ars_base
+[1.966s] Installing teleop_keys script to /home/ty/ARS_Project/ars_ws/install/ars_base/lib/ars_base
+[1.966s] 
+[1.966s] Installed /home/ty/ARS_Project/ars_ws/build/ars_base
+[1.966s] running symlink_data
+[1.996s] Invoked command in '/home/ty/ARS_Project/ars_ws/build/ars_base' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/ty/ARS_Project/ars_ws/build/ars_base/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ty/ARS_Project/ars_ws/install/ars_base/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ty/ARS_Project/ars_ws/build/ars_base/build --no-deps symlink_data

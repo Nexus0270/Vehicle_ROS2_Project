@@ -1,0 +1,358 @@
+===============================================================================
+ ARS MECANUM ROBOT  -  HOW TO RUN
+ Guarded teleoperation + lidar SLAM + camera 3D mapping
+===============================================================================
+
+
+-------------------------------------------------------------------------------
+ 1. QUICK START  (one command, does everything)
+-------------------------------------------------------------------------------
+
+    cd ~/ARS_Project
+    ./run_teleop_slam.sh
+
+ This starts the whole stack and then hands you the keyboard.
+ Press Ctrl-C to quit - it stops the robot and shuts the stack down.
+
+ The camera runs 424x240 @ 15 Hz by DEFAULT. That is deliberate and is the
+ better mapping mode: at 640x480 the colour stream only manages 3.4 Hz on
+ USB2, and RTAB-Map syncs colour with depth, so the whole pipeline was capped
+ at 3.4 Hz keyframes. 424x240 gives 15 Hz on both - 4.4x more keyframes.
+
+ Options:
+    ./run_teleop_slam.sh --no-camera       lidar only (camera unplugged)
+    ./run_teleop_slam.sh --no-slam         guarded teleop only, much lighter
+    ./run_teleop_slam.sh --no-rviz         no visualisation window
+    ./run_teleop_slam.sh --full-res        640x480 camera (SLOWER mapping)
+    ./run_teleop_slam.sh --bench           close-quarters thresholds (0.15 m)
+    ./run_teleop_slam.sh --wheel-odom      encoders instead of lidar ICP
+
+
+-------------------------------------------------------------------------------
+ 2. MANUAL START  (two terminals - use this if you want RViz too)
+-------------------------------------------------------------------------------
+
+ TERMINAL 1  - the stack
+
+    source /opt/ros/jazzy/setup.bash
+    source ~/ARS_Project/ydlidar_ros2_ws/install/setup.bash
+    source ~/ARS_Project/ars_ws/install/setup.bash
+    ros2 launch ars_base teleop_slam.launch.py
+
+ RViz opens automatically with the stack (use_rviz:=false to skip).
+
+ TERMINAL 2  - teleop keyboard  (must be its own terminal: it needs your keys)
+
+    source /opt/ros/jazzy/setup.bash
+    source ~/ARS_Project/ars_ws/install/setup.bash
+    xset r rate 200 40
+    ros2 run ars_base teleop_keys
+
+
+-------------------------------------------------------------------------------
+ 3. TELEOP CONTROLS   (hold to move, release to stop)
+-------------------------------------------------------------------------------
+
+    w        forward
+    s        backward
+    a        strafe LEFT      (pure sideways - mecanum, no rotation)
+    d        strafe RIGHT
+    q        rotate left
+    e        rotate right
+
+    space    stop now
+    + / -    speed up / down
+    Ctrl-C   quit (publishes a stop first)
+
+ Two independent safety layers stop the robot:
+   1. This node zeroes velocity when you release the key.
+   2. The Arduino firmware halts on its own if commands stop arriving for
+      200 ms - so if the node crashes, the terminal closes, or SSH drops,
+      the robot still stops.
+
+
+-------------------------------------------------------------------------------
+ 4. OBSTACLE AUTO-STOP
+-------------------------------------------------------------------------------
+
+ The safety guard sits between teleop and the wheels. Motion TOWARD anything
+ closer than stop_distance is refused, even if you hold the key.
+
+ It is holonomic-aware: it checks the direction you are actually travelling,
+ so strafing left into a wall is blocked even when the path ahead is clear.
+ You can ALWAYS reverse away from a block.
+
+ Defaults:  hard stop  < 0.40 m
+            slow zone  0.40 - 0.80 m  (speed is meant to taper down)
+
+ NOTE (measured 2026-07-23, suspended-wheel test): in the slow zone the
+ tapered command falls below the motors' throttle deadband, so instead of
+ crawling the robot simply STOPS the moment an obstacle enters 0.80 m, then
+ resumes full speed once it clears. This is fail-safe (it errs toward
+ stopping) but it is not smooth deceleration yet. The auto-stop itself is
+ verified correct in all directions.
+
+ Change on the fly, without restarting:
+
+    ros2 param set /safety_guard stop_distance 0.30
+    ros2 param set /safety_guard slow_distance 0.60
+
+ Or at launch:
+
+    ros2 launch ars_base teleop_slam.launch.py stop_distance:=0.5
+
+
+-------------------------------------------------------------------------------
+ 5. WATCHING IT WORK   (a third terminal)
+-------------------------------------------------------------------------------
+
+    source /opt/ros/jazzy/setup.bash
+    source ~/ARS_Project/ars_ws/install/setup.bash
+
+    ros2 topic echo /safety/blocked            true the moment it refuses
+    ros2 topic echo /safety/min_range          nearest obstacle, metres
+    ros2 topic echo /obstacle_check/summary    lidar vs camera agreement
+    ros2 topic echo /odom --field pose.pose    wheel odometry
+
+ The cross-check line reads like:
+
+    lidar=0.85 m  camera=0.30 m  delta=-0.56 m
+    CAMERA SEES CLOSER - lidar may be missing this obstacle
+
+ "CAMERA SEES CLOSER" is the important one: the lidar's single scan plane is
+ missing something the depth camera can see (glass, a table top, a low step),
+ so the guard believes it has more clearance than it really does.
+
+
+-------------------------------------------------------------------------------
+ 6. RVIZ  -  SEEING THE MAP
+-------------------------------------------------------------------------------
+
+    source /opt/ros/jazzy/setup.bash
+    source ~/ARS_Project/ars_ws/install/setup.bash
+    ros2 run rviz2 rviz2 -d ~/ARS_Project/ars_ws/install/ars_base/share/ars_base/config/slam.rviz
+
+ Shows one xyz triad on the robot, the occupancy grid, live laser points,
+ the robot model, and a cyan ICP odometry arrow.
+
+ Drive around and the map fills in. SLAM tracks motion from the LIDAR
+ (ICP scan matching), so it works even if you push the robot by hand.
+
+ To use wheel encoders for odometry instead:
+
+    ros2 launch ars_base teleop_slam.launch.py odom_source:=wheels
+
+
+-------------------------------------------------------------------------------
+ 7. REMOTE ACCESS FROM A LAPTOP OR PHONE  (SSH)
+-------------------------------------------------------------------------------
+
+ openssh-server was installed 2026-07-23 so the robot's PC can be driven from
+ a terminal with no monitor attached at all - not even NoMachine. This is the
+ lightest-weight remote option: plain text, no graphics, works from a laptop
+ or a phone (Termux / JuiceSSH / Termius).
+
+ CONNECT
+
+    ssh ty@172.20.82.173
+
+ (that is the robot PC's IP on "EnergisingFutures-New" - re-check with
+ `hostname -I` on the robot if it has changed, e.g. after reconnecting to a
+ different network). Enter the normal login password when prompted.
+
+ RUN THE STACK - same commands as section 1, typed into the SSH session:
+
+    cd ~/ARS_Project
+    ./run_teleop_slam.sh --no-rviz
+
+ then, in a SECOND ssh session (open another terminal tab/window and ssh in
+ again) or a second SSH connection:
+
+    cd ~/ARS_Project
+    source /opt/ros/jazzy/setup.bash
+    source ars_ws/install/setup.bash
+    ros2 run ars_base teleop_keys
+
+ --no-rviz is required over SSH: there is no display for it to open.
+
+ `xset r rate 200 40` (mentioned in section 2) DOES NOTHING over SSH - it
+ configures the X server's key-repeat, and there is no X server in an SSH
+ terminal. Over SSH, key-repeat behaviour comes from YOUR LAPTOP/PHONE's own
+ OS keyboard settings, since that is where the physical key is actually held
+ before the repeated characters are sent down the SSH connection.
+
+ You still get the live auto-stop message on screen exactly as described in
+ section 8 below - it is printed by teleop_keys itself, which works over SSH
+ same as locally.
+
+ IF THE LAPTOP/PHONE CANNOT CONNECT
+   Likely client isolation on the WiFi network (common on institutional
+   networks - devices on the same WiFi cannot see each other). Fallback: turn
+   the robot's PC into its own hotspot (a "Hotspot" NetworkManager connection
+   is already saved on it) and connect the laptop/phone to THAT instead - no
+   isolation, fully local, IP is usually 10.42.0.1.
+
+
+-------------------------------------------------------------------------------
+ 8. HEADLESS TESTING  (no monitor - driving in open space)
+-------------------------------------------------------------------------------
+
+ Use this when you need to unplug the display and move the robot somewhere
+ with more room. Everything keeps running without a screen; you reconnect
+ afterwards to review what happened and to see the map.
+
+ STEP 1  - start WITHOUT RViz. RViz crashes when the HDMI connection drops,
+           so leave it out. Everything else is headless and unaffected.
+
+    cd ~/ARS_Project
+    ./run_teleop_slam.sh --no-rviz
+
+           (add --bench only for close-quarters work; for a real open-space
+            obstacle test leave the stop distance at its normal 0.40 m so the
+            robot stops comfortably early)
+
+ STEP 2  - unplug HDMI. The stack keeps running. Your teleop terminal is
+           still alive, you just cannot see it.
+
+ STEP 3  - drive, typing blind. You know the keys. The ROBOT STOPPING is your
+           live feedback that the auto-stop fired - that is the test. The
+           teleop terminal ALSO prints the stop live as it happens (see below),
+           so if you can see the terminal you get an on-screen message too.
+
+ STEP 4  - plug HDMI back in and read what happened:
+
+    cat ~/ARS_Project/logs/run_*.log | tail -40
+
+           Every auto-stop is recorded in plain language with the distance,
+           the direction that was blocked, and the camera cross-check, e.g.
+
+               [   7.8s] *** OBSTACLE DETECTED - ROBOT AUTO-STOPPED *** (stop #1) obstacle at 0.11 m while driving forward, camera cross-check 0.14 m
+               [  11.5s] --- path clear - robot allowed to move again ---
+               [  14.4s] === run ended - 1 auto-stop events ===
+
+           The same "OBSTACLE DETECTED - ROBOT AUTO-STOPPED" line is printed
+           to the teleop terminal in real time while you drive, so you see it
+           on screen the instant it fires, not only in this log afterwards.
+
+           along with every camera/lidar disagreement. There is also a CSV
+           beside it (run_<timestamp>.csv) sampling every signal at 5 Hz if
+           you want to plot the approach.
+
+ STEP 5  - see the map that was built while you were headless:
+
+    ros2 run rviz2 rviz2 -d ~/ARS_Project/ars_ws/install/ars_base/share/ars_base/config/slam.rviz
+
+           The FULL map appears even though RViz was not running during the
+           drive: RTAB-Map publishes it latched (transient-local QoS), so a
+           late-joining viewer receives the whole thing. Nothing is lost by
+           running without a display.
+
+ WHY THERE IS NO BEEP
+   Every audio output on this machine is HDMI - there is no analog jack. Any
+   audible alert would go silent at exactly the moment the display is
+   unplugged, which is when it would be needed. The recorded log is the
+   substitute.
+
+ CAUTIONS
+   - Keep the teleop terminal FOCUSED before you unplug. If you click
+     elsewhere or the screen locks, keystrokes go somewhere else and the
+     robot simply stops (harmless, but you lose control until you can see
+     again).
+   - Clear anything sitting right next to the lidar before starting, or the
+     guard will refuse to move in that direction from the outset.
+   - Recording is on by default. Disable with  record:=false  if needed.
+
+
+-------------------------------------------------------------------------------
+ 9. STOPPING / CLEANING UP
+-------------------------------------------------------------------------------
+
+ Normally Ctrl-C in each terminal is enough. If something is left behind and
+ the serial port stays busy:
+
+    pkill -9 -f "install/ars_base/lib|ydlidar_ros2_driver_node|realsense2_camera|rtabmap|rviz2"
+
+ Check the port is free:
+
+    lsof /dev/ttyUSB0          (no output = free)
+
+
+-------------------------------------------------------------------------------
+ 10. TROUBLESHOOTING
+-------------------------------------------------------------------------------
+
+ Robot will not move at all
+   - The guard is probably blocking. Check:  ros2 topic echo /safety/min_range
+     If it is below stop_distance, clear the obstacle or lower the threshold.
+   - Check the motor battery is connected and charged.
+
+ "Could not open /dev/arduino"
+   - A leftover process is holding the port. Run the pkill line in section 9.
+   - Confirm the symlink exists:  ls -l /dev/arduino
+
+ No /scan
+   - Check the lidar is plugged in:  ls -l /dev/ydlidar
+   - The guard FAILS CLOSED: with no scan it refuses all motion, by design.
+
+ Map does not move when the robot moves
+   - With odom_source:=wheels the map only moves when the WHEELS turn.
+     Use the default (lidar ICP) if you are pushing the robot by hand.
+
+ Arduino seems dead / no serial output
+   - Almost always a leftover process holding the port. See section 9.
+     The board itself talks to avrdude fine even when this happens.
+
+
+ SLAM shows rotation backwards / map looks mirrored
+   - The lidar scan direction and mounting must BOTH be right. On this robot:
+       ydlidar.yaml   inverted: true      (the X2 emits a MIRRORED scan)
+       URDF           lidar_yaw = pi      (it is mounted facing backwards)
+     Both are needed and they fix different things.
+   - IMPORTANT when re-checking this: an object placed in FRONT cannot tell
+     you whether the scan is mirrored - it lands at ~180 deg either way.
+     Always verify with an object OFF-AXIS, e.g. at the robot's LEFT:
+       left object should read about +90 deg in base_link.
+
+ Left/right or front/back look swapped in RViz
+   - Check your viewpoint first: looking at the robot model from the front
+     makes left and right appear reversed. Orbit round behind it.
+
+ Device names (these are stable, set by udev):
+   /dev/arduino   -> the Mega   (CH340 clone, so it is ttyUSB*, NOT ttyACM*)
+   /dev/ydlidar   -> the X2     (CP210x)
+
+
+-------------------------------------------------------------------------------
+ 11. STILL TO DO   (values that are placeholders right now)
+-------------------------------------------------------------------------------
+
+ These do not stop the system running, but they affect accuracy:
+
+ [ ] wheel_separation_x / wheel_separation_y
+       measure front-to-rear and left-to-right wheel spacing.
+       Set in BOTH:
+         ~/ARS_Project/ars_ws/src/ars_base/config/ars_base.yaml
+         ~/ARS_Project/ars_ws/src/ars_base/urdf/ars_robot.urdf.xacro
+       If they disagree, odometry and the URDF describe different robots.
+
+ [ ] max_wheel_speed   (currently 0.60 m/s, guessed)
+       wheel speed at full throttle. Converts cmd_vel into throttle.
+
+ [ ] lidar_x/y/z and camera_x/y/z in the xacro
+       the camera/lidar cross-check accuracy depends directly on these.
+
+ [ ] stop_distance
+       must be >= (lidar-to-bumper distance) + braking margin. The guard
+       measures from the LIDAR, not from the front of the robot.
+
+ [ ] Motor power
+       four motors together sag the supply (113 -> 40 ticks/s at the same
+       throttle). Charge the 2S fully, or move to 3S and drop MAX_THROTTLE
+       (now 1.00) to about 0.55 to protect the 6 V motors.
+
+ NOTE: /scan now runs at 12.5 Hz (the lidar is spun faster via
+ support_motor_dtr), NOT the old 3.8 Hz, and the earlier "move to USB3" item
+ was a mis-diagnosis - the 3.8 Hz was a property of the X2, not USB
+ contention. Auto-stop latency is now ~80 ms. Nothing to do here.
+
+===============================================================================

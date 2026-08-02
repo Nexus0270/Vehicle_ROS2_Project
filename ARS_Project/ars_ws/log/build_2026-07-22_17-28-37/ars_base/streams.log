@@ -1,0 +1,34 @@
+[1.316s] Invoking command in '/home/ty/ARS_Project/ars_ws/build/ars_base': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/ty/ARS_Project/ars_ws/build/ars_base/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ty/ARS_Project/ars_ws/install/ars_base/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ty/ARS_Project/ars_ws/build/ars_base/build --no-deps symlink_data
+[1.658s] running develop
+[1.836s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:363: UserWarning: Unbuilt egg for pytest-repeat [unknown version] (/usr/lib/python3/dist-packages)
+[1.836s]   self.local_index = Environment(self.shadow_path + sys.path)
+[1.876s] running egg_info
+[1.876s] creating ars_base.egg-info
+[1.896s] writing ars_base.egg-info/PKG-INFO
+[1.896s] writing dependency_links to ars_base.egg-info/dependency_links.txt
+[1.896s] writing entry points to ars_base.egg-info/entry_points.txt
+[1.896s] writing requirements to ars_base.egg-info/requires.txt
+[1.897s] writing top-level names to ars_base.egg-info/top_level.txt
+[1.897s] writing manifest file 'ars_base.egg-info/SOURCES.txt'
+[1.939s] reading manifest file 'ars_base.egg-info/SOURCES.txt'
+[1.940s] writing manifest file 'ars_base.egg-info/SOURCES.txt'
+[1.964s] running build_ext
+[1.964s] Creating /home/ty/ARS_Project/ars_ws/install/ars_base/lib/python3.12/site-packages/ars-base.egg-link (link to .)
+[1.965s] Installing serial_bridge script to /home/ty/ARS_Project/ars_ws/install/ars_base/lib/ars_base
+[1.965s] 
+[1.965s] Installed /home/ty/ARS_Project/ars_ws/build/ars_base
+[1.965s] running symlink_data
+[1.965s] creating /home/ty/ARS_Project/ars_ws/install/ars_base/share/ament_index
+[1.965s] creating /home/ty/ARS_Project/ars_ws/install/ars_base/share/ament_index/resource_index
+[1.965s] creating /home/ty/ARS_Project/ars_ws/install/ars_base/share/ament_index/resource_index/packages
+[1.965s] symbolically linking /home/ty/ARS_Project/ars_ws/build/ars_base/resource/ars_base -> /home/ty/ARS_Project/ars_ws/install/ars_base/share/ament_index/resource_index/packages
+[1.966s] symbolically linking /home/ty/ARS_Project/ars_ws/build/ars_base/package.xml -> /home/ty/ARS_Project/ars_ws/install/ars_base/share/ars_base
+[1.966s] creating /home/ty/ARS_Project/ars_ws/install/ars_base/share/ars_base/launch
+[1.966s] symbolically linking /home/ty/ARS_Project/ars_ws/build/ars_base/launch/bringup.launch.py -> /home/ty/ARS_Project/ars_ws/install/ars_base/share/ars_base/launch
+[1.966s] symbolically linking /home/ty/ARS_Project/ars_ws/build/ars_base/launch/mapping.launch.py -> /home/ty/ARS_Project/ars_ws/install/ars_base/share/ars_base/launch
+[1.966s] symbolically linking /home/ty/ARS_Project/ars_ws/build/ars_base/launch/description.launch.py -> /home/ty/ARS_Project/ars_ws/install/ars_base/share/ars_base/launch
+[1.966s] creating /home/ty/ARS_Project/ars_ws/install/ars_base/share/ars_base/urdf
+[1.966s] symbolically linking /home/ty/ARS_Project/ars_ws/build/ars_base/urdf/ars_robot.urdf.xacro -> /home/ty/ARS_Project/ars_ws/install/ars_base/share/ars_base/urdf
+[1.966s] creating /home/ty/ARS_Project/ars_ws/install/ars_base/share/ars_base/config
+[1.966s] symbolically linking /home/ty/ARS_Project/ars_ws/build/ars_base/config/ars_base.yaml -> /home/ty/ARS_Project/ars_ws/install/ars_base/share/ars_base/config
+[1.995s] Invoked command in '/home/ty/ARS_Project/ars_ws/build/ars_base' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/ty/ARS_Project/ars_ws/build/ars_base/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ty/ARS_Project/ars_ws/install/ars_base/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ty/ARS_Project/ars_ws/build/ars_base/build --no-deps symlink_data

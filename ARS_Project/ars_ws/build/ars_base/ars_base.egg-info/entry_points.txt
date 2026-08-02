@@ -1,0 +1,6 @@
+[console_scripts]
+event_logger = ars_base.event_logger:main
+obstacle_verifier = ars_base.obstacle_verifier:main
+safety_guard = ars_base.safety_guard:main
+serial_bridge = ars_base.serial_bridge:main
+teleop_keys = ars_base.teleop_keys:main

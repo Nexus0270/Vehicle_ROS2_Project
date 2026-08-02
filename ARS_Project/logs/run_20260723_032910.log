@@ -1,0 +1,22 @@
+[    0.0s] === run started 20260723_032910 ===
+[   30.0s] CAMERA/LIDAR DISAGREE - lidar=2.37 m  camera=0.45 m  delta=-1.92 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   49.5s] CAMERA/LIDAR DISAGREE - lidar=2.38 m  camera=0.45 m  delta=-1.93 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   79.0s] CAMERA/LIDAR DISAGREE - lidar=2.37 m  camera=0.45 m  delta=-1.92 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   80.5s] CAMERA/LIDAR DISAGREE - lidar=2.37 m  camera=0.45 m  delta=-1.92 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   87.0s] CAMERA/LIDAR DISAGREE - lidar=2.47 m  camera=0.45 m  delta=-2.01 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  147.0s] CAMERA/LIDAR DISAGREE - lidar=2.56 m  camera=0.44 m  delta=-2.12 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  148.5s] CAMERA/LIDAR DISAGREE - lidar=2.57 m  camera=0.44 m  delta=-2.13 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  168.5s] CAMERA/LIDAR DISAGREE - lidar=0.81 m  camera=0.44 m  delta=-0.37 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  170.0s] CAMERA/LIDAR DISAGREE - lidar=2.46 m  camera=0.44 m  delta=-2.02 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  194.0s] CAMERA/LIDAR DISAGREE - lidar=2.50 m  camera=0.44 m  delta=-2.05 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  195.0s] CAMERA/LIDAR DISAGREE - lidar=2.48 m  camera=0.44 m  delta=-2.03 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  205.0s] CAMERA/LIDAR DISAGREE - lidar=2.41 m  camera=0.44 m  delta=-1.97 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  209.5s] CAMERA/LIDAR DISAGREE - lidar=2.41 m  camera=0.44 m  delta=-1.97 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  223.5s] CAMERA/LIDAR DISAGREE - lidar=0.82 m  camera=0.44 m  delta=-0.37 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  235.0s] CAMERA/LIDAR DISAGREE - lidar=2.41 m  camera=0.44 m  delta=-1.97 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  272.5s] CAMERA/LIDAR DISAGREE - lidar=2.29 m  camera=0.44 m  delta=-1.85 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  277.0s] CAMERA/LIDAR DISAGREE - lidar=2.30 m  camera=0.44 m  delta=-1.86 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  318.0s] CAMERA/LIDAR DISAGREE - lidar=0.81 m  camera=0.44 m  delta=-0.37 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  337.5s] CAMERA/LIDAR DISAGREE - lidar=2.48 m  camera=0.44 m  delta=-2.04 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  338.0s] CAMERA/LIDAR DISAGREE - lidar=2.49 m  camera=0.44 m  delta=-2.05 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  339.0s] CAMERA/LIDAR DISAGREE - lidar=2.50 m  camera=0.44 m  delta=-2.05 m  CAMERA SEES CLOSER - lidar may be missing this obstacle

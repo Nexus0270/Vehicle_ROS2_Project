@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+		<Metadata>
+			<Identity Language="en-US" Id="vscode-language-pack-cs" Version="1.96.0" Publisher="MS-CEINTL" />
+			<DisplayName>Czech Language Pack for Visual Studio Code</DisplayName>
+			<Description xml:space="preserve">Language pack extension for Czech</Description>
+			<Tags>čeština,lp-cs,__lp_vscode,__lp-cs_vscode,__lp_ms-vscode.js-debug,__lp-cs_ms-vscode.js-debug,__lp_vscode.bat,__lp-cs_vscode.bat,__lp_vscode.builtin-notebook-renderers,__lp-cs_vscode.builtin-notebook-renderers,__lp_vscode.clojure,__lp-cs_vscode.clojure,__lp_vscode.coffeescript,__lp-cs_vscode.coffeescript,__lp_vscode.configuration-editing,__lp-cs_vscode.configuration-editing,__lp_vscode.cpp,__lp-cs_vscode.cpp,__lp_vscode.csharp,__lp-cs_vscode.csharp,__lp_vscode.css-language-features,__lp-cs_vscode.css-language-features,__lp_vscode.css,__lp-cs_vscode.css,__lp_vscode.dart,__lp-cs_vscode.dart,__lp_vscode.debug-auto-launch,__lp-cs_vscode.debug-auto-launch,__lp_vscode.debug-server-ready,__lp-cs_vscode.debug-server-ready,__lp_vscode.diff,__lp-cs_vscode.diff,__lp_vscode.docker,__lp-cs_vscode.docker,__lp_vscode.emmet,__lp-cs_vscode.emmet,__lp_vscode.extension-editing,__lp-cs_vscode.extension-editing,__lp_vscode.fsharp,__lp-cs_vscode.fsharp,__lp_vscode.git-base,__lp-cs_vscode.git-base,__lp_vscode.git,__lp-cs_vscode.git,__lp_vscode.github-authentication,__lp-cs_vscode.github-authentication,__lp_vscode.github,__lp-cs_vscode.github,__lp_vscode.go,__lp-cs_vscode.go,__lp_vscode.groovy,__lp-cs_vscode.groovy,__lp_vscode.grunt,__lp-cs_vscode.grunt,__lp_vscode.gulp,__lp-cs_vscode.gulp,__lp_vscode.handlebars,__lp-cs_vscode.handlebars,__lp_vscode.hlsl,__lp-cs_vscode.hlsl,__lp_vscode.html-language-features,__lp-cs_vscode.html-language-features,__lp_vscode.html,__lp-cs_vscode.html,__lp_vscode.ini,__lp-cs_vscode.ini,__lp_vscode.ipynb,__lp-cs_vscode.ipynb,__lp_vscode.jake,__lp-cs_vscode.jake,__lp_vscode.java,__lp-cs_vscode.java,__lp_vscode.javascript,__lp-cs_vscode.javascript,__lp_vscode.json-language-features,__lp-cs_vscode.json-language-features,__lp_vscode.json,__lp-cs_vscode.json,__lp_vscode.julia,__lp-cs_vscode.julia,__lp_vscode.latex,__lp-cs_vscode.latex,__lp_vscode.less,__lp-cs_vscode.less,__lp_vscode.log,__lp-cs_vscode.log,__lp_vscode.lua,__lp-cs_vscode.lua,__lp_vscode.make,__lp-cs_vscode.make,__lp_vscode.markdown-language-features,__lp-cs_vscode.markdown-language-features,__lp_vscode.markdown-math,__lp-cs_vscode.markdown-math,__lp_vscode.markdown,__lp-cs_vscode.markdown,__lp_vscode.media-preview,__lp-cs_vscode.media-preview,__lp_vscode.merge-conflict,__lp-cs_vscode.merge-conflict,__lp_vscode.microsoft-authentication,__lp-cs_vscode.microsoft-authentication,__lp_vscode.npm,__lp-cs_vscode.npm,__lp_vscode.objective-c,__lp-cs_vscode.objective-c,__lp_vscode.perl,__lp-cs_vscode.perl,__lp_vscode.php-language-features,__lp-cs_vscode.php-language-features,__lp_vscode.php,__lp-cs_vscode.php,__lp_vscode.powershell,__lp-cs_vscode.powershell,__lp_vscode.pug,__lp-cs_vscode.pug,__lp_vscode.python,__lp-cs_vscode.python,__lp_vscode.r,__lp-cs_vscode.r,__lp_vscode.razor,__lp-cs_vscode.razor,__lp_vscode.references-view,__lp-cs_vscode.references-view,__lp_vscode.restructuredtext,__lp-cs_vscode.restructuredtext,__lp_vscode.ruby,__lp-cs_vscode.ruby,__lp_vscode.rust,__lp-cs_vscode.rust,__lp_vscode.scss,__lp-cs_vscode.scss,__lp_vscode.search-result,__lp-cs_vscode.search-result,__lp_vscode.shaderlab,__lp-cs_vscode.shaderlab,__lp_vscode.shellscript,__lp-cs_vscode.shellscript,__lp_vscode.simple-browser,__lp-cs_vscode.simple-browser,__lp_vscode.sql,__lp-cs_vscode.sql,__lp_vscode.swift,__lp-cs_vscode.swift,__lp_vscode.theme-abyss,__lp-cs_vscode.theme-abyss,__lp_vscode.theme-defaults,__lp-cs_vscode.theme-defaults,__lp_vscode.theme-kimbie-dark,__lp-cs_vscode.theme-kimbie-dark,__lp_vscode.theme-monokai-dimmed,__lp-cs_vscode.theme-monokai-dimmed,__lp_vscode.theme-monokai,__lp-cs_vscode.theme-monokai,__lp_vscode.theme-quietlight,__lp-cs_vscode.theme-quietlight,__lp_vscode.theme-red,__lp-cs_vscode.theme-red,__lp_vscode.theme-solarized-dark,__lp-cs_vscode.theme-solarized-dark,__lp_vscode.theme-solarized-light,__lp-cs_vscode.theme-solarized-light,__lp_vscode.theme-tomorrow-night-blue,__lp-cs_vscode.theme-tomorrow-night-blue,__lp_vscode.tunnel-forwarding,__lp-cs_vscode.tunnel-forwarding,__lp_vscode.typescript-language-features,__lp-cs_vscode.typescript-language-features,__lp_vscode.typescript,__lp-cs_vscode.typescript,__lp_vscode.vb,__lp-cs_vscode.vb,__lp_vscode.vscode-theme-seti,__lp-cs_vscode.vscode-theme-seti,__lp_vscode.xml,__lp-cs_vscode.xml,__lp_vscode.yaml,__lp-cs_vscode.yaml</Tags>
+			<Categories>Language Packs</Categories>
+			<GalleryFlags>Public</GalleryFlags>
+			
+			<Properties>
+				<Property Id="Microsoft.VisualStudio.Code.Engine" Value="^1.96.0" />
+				<Property Id="Microsoft.VisualStudio.Code.ExtensionDependencies" Value="" />
+				<Property Id="Microsoft.VisualStudio.Code.ExtensionPack" Value="" />
+				<Property Id="Microsoft.VisualStudio.Code.ExtensionKind" Value="ui,workspace" />
+				<Property Id="Microsoft.VisualStudio.Code.LocalizedLanguages" Value="čeština" />
+				<Property Id="Microsoft.VisualStudio.Code.EnabledApiProposals" Value="" />
+				
+				
+				
+				<Property Id="Microsoft.VisualStudio.Services.Links.Source" Value="https://github.com/Microsoft/vscode-loc.git" />
+				<Property Id="Microsoft.VisualStudio.Services.Links.Getstarted" Value="https://github.com/Microsoft/vscode-loc.git" />
+				<Property Id="Microsoft.VisualStudio.Services.Links.GitHub" Value="https://github.com/Microsoft/vscode-loc.git" />
+				<Property Id="Microsoft.VisualStudio.Services.Links.Support" Value="https://github.com/Microsoft/vscode-loc/issues" />
+				<Property Id="Microsoft.VisualStudio.Services.Links.Learn" Value="https://github.com/Microsoft/vscode-loc#readme" />
+				
+				
+				<Property Id="Microsoft.VisualStudio.Services.GitHubFlavoredMarkdown" Value="true" />
+				<Property Id="Microsoft.VisualStudio.Services.Content.Pricing" Value="Free"/>
+
+				
+				
+			</Properties>
+			
+			<Icon>extension/languagepack.png</Icon>
+		</Metadata>
+		<Installation>
+			<InstallationTarget Id="Microsoft.VisualStudio.Code"/>
+		</Installation>
+		<Dependencies/>
+		<Assets>
+			<Asset Type="Microsoft.VisualStudio.Code.Manifest" Path="extension/package.json" Addressable="true" />
+			<Asset Type="Microsoft.VisualStudio.Services.Content.Details" Path="extension/readme.md" Addressable="true" />
+<Asset Type="Microsoft.VisualStudio.Services.Content.Changelog" Path="extension/changelog.md" Addressable="true" />
+<Asset Type="Microsoft.VisualStudio.Services.Icons.Default" Path="extension/languagepack.png" Addressable="true" />
+<Asset Type="Microsoft.VisualStudio.Code.Translation.CS" Path="extension/translations/main.i18n.json" Addressable="true" />
+		</Assets>
+	</PackageManifest>

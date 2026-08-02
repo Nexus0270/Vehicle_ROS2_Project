@@ -1,0 +1,75 @@
+[    0.0s] === run started 20260722_233705 ===
+[    3.6s] CAMERA/LIDAR DISAGREE - lidar=3.19 m  camera=1.09 m  delta=-2.10 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[    4.1s] CAMERA/LIDAR DISAGREE - lidar=3.17 m  camera=0.47 m  delta=-2.71 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[    4.6s] CAMERA/LIDAR DISAGREE - lidar=3.16 m  camera=2.21 m  delta=-0.95 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[    5.1s] CAMERA/LIDAR DISAGREE - lidar=3.16 m  camera=2.21 m  delta=-0.95 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[    5.6s] CAMERA/LIDAR DISAGREE - lidar=3.17 m  camera=2.22 m  delta=-0.96 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[    6.1s] CAMERA/LIDAR DISAGREE - lidar=3.18 m  camera=2.23 m  delta=-0.94 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[    6.6s] CAMERA/LIDAR DISAGREE - lidar=3.19 m  camera=2.20 m  delta=-0.99 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[    7.1s] CAMERA/LIDAR DISAGREE - lidar=3.19 m  camera=2.24 m  delta=-0.96 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[    7.6s] CAMERA/LIDAR DISAGREE - lidar=3.16 m  camera=2.21 m  delta=-0.95 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   27.6s] CAMERA/LIDAR DISAGREE - lidar=3.14 m  camera=2.19 m  delta=-0.95 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   28.1s] CAMERA/LIDAR DISAGREE - lidar=3.20 m  camera=2.20 m  delta=-1.00 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   28.6s] CAMERA/LIDAR DISAGREE - lidar=3.20 m  camera=2.21 m  delta=-0.99 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   46.6s] CAMERA/LIDAR DISAGREE - lidar=3.16 m  camera=0.93 m  delta=-2.24 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   49.6s] CAMERA/LIDAR DISAGREE - lidar=5.07 m  camera=0.68 m  delta=-4.39 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   50.1s] CAMERA/LIDAR DISAGREE - lidar=5.04 m  camera=0.66 m  delta=-4.38 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   50.6s] CAMERA/LIDAR DISAGREE - lidar=5.04 m  camera=0.69 m  delta=-4.35 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   51.1s] CAMERA/LIDAR DISAGREE - lidar=3.67 m  camera=0.72 m  delta=-2.94 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   51.6s] CAMERA/LIDAR DISAGREE - lidar=2.49 m  camera=0.71 m  delta=-1.79 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   70.6s] CAMERA/LIDAR DISAGREE - lidar=5.01 m  camera=4.77 m  delta=-0.23 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[   84.6s] CAMERA/LIDAR DISAGREE - lidar=1.47 m  camera=1.25 m  delta=-0.21 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  103.6s] CAMERA/LIDAR DISAGREE - lidar=1.97 m  camera=1.73 m  delta=-0.23 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  121.4s] BLOCK #1 - auto-stop fired at 0.11 m
+[  121.6s] CLEAR - motion allowed again
+[  141.6s] CAMERA/LIDAR DISAGREE - lidar=1.37 m  camera=1.12 m  delta=-0.25 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  161.6s] BLOCK #2 - auto-stop fired at 0.11 m
+[  161.8s] CLEAR - motion allowed again
+[  162.8s] BLOCK #3 - auto-stop fired at 0.11 m
+[  163.1s] CLEAR - motion allowed again
+[  174.9s] BLOCK #4 - auto-stop fired at 0.11 m
+[  175.0s] CLEAR - motion allowed again
+[  214.9s] BLOCK #5 - auto-stop fired at 0.10 m
+[  215.3s] CLEAR - motion allowed again
+[  215.4s] BLOCK #6 - auto-stop fired at 0.15 m
+[  216.1s] CLEAR - motion allowed again
+[  228.9s] BLOCK #7 - auto-stop fired at 0.11 m
+[  229.3s] CLEAR - motion allowed again
+[  233.6s] BLOCK #8 - auto-stop fired at 0.11 m
+[  233.7s] CLEAR - motion allowed again
+[  237.1s] CAMERA/LIDAR DISAGREE - lidar=1.46 m  camera=1.23 m  delta=-0.23 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  242.0s] BLOCK #9 - auto-stop fired at 0.11 m
+[  242.5s] CLEAR - motion allowed again
+[  243.8s] BLOCK #10 - auto-stop fired at 0.49 m
+[  243.8s] CLEAR - motion allowed again
+[  246.3s] BLOCK #11 - auto-stop fired at 0.25 m
+[  246.5s] CLEAR - motion allowed again
+[  250.3s] BLOCK #12 - auto-stop fired at 0.36 m
+[  250.8s] CLEAR - motion allowed again
+[  251.0s] BLOCK #13 - auto-stop fired at 0.32 m
+[  251.4s] CLEAR - motion allowed again
+[  251.7s] BLOCK #14 - auto-stop fired at 0.30 m
+[  252.0s] CLEAR - motion allowed again
+[  252.1s] BLOCK #15 - auto-stop fired at 0.31 m
+[  252.2s] CLEAR - motion allowed again
+[  252.9s] BLOCK #16 - auto-stop fired at 0.39 m
+[  253.2s] CLEAR - motion allowed again
+[  258.9s] BLOCK #17 - auto-stop fired at 0.39 m
+[  259.2s] CLEAR - motion allowed again
+[  259.3s] BLOCK #18 - auto-stop fired at 0.39 m
+[  259.5s] CLEAR - motion allowed again
+[  260.1s] BLOCK #19 - auto-stop fired at 0.40 m
+[  260.3s] CLEAR - motion allowed again
+[  296.7s] BLOCK #20 - auto-stop fired at 0.36 m
+[  297.0s] CLEAR - motion allowed again
+[  297.2s] BLOCK #21 - auto-stop fired at 0.37 m
+[  297.3s] CLEAR - motion allowed again
+[  300.1s] BLOCK #22 - auto-stop fired at 0.40 m
+[  300.7s] CLEAR - motion allowed again
+[  315.4s] BLOCK #23 - auto-stop fired at 0.57 m
+[  315.4s] CLEAR - motion allowed again
+[  353.1s] CAMERA/LIDAR DISAGREE - lidar=3.56 m  camera=0.43 m  delta=-3.14 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  353.6s] CAMERA/LIDAR DISAGREE - lidar=10.55 m  camera=0.42 m  delta=-10.14 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  354.1s] CAMERA/LIDAR DISAGREE - lidar=10.75 m  camera=0.40 m  delta=-10.35 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  354.6s] CAMERA/LIDAR DISAGREE - lidar=10.67 m  camera=0.43 m  delta=-10.24 m  CAMERA SEES CLOSER - lidar may be missing this obstacle
+[  487.3s] === run ended - 23 auto-stop events ===

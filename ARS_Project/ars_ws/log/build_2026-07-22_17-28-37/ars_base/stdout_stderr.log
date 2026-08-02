@@ -1,0 +1,32 @@
+running develop
+/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:363: UserWarning: Unbuilt egg for pytest-repeat [unknown version] (/usr/lib/python3/dist-packages)
+  self.local_index = Environment(self.shadow_path + sys.path)
+running egg_info
+creating ars_base.egg-info
+writing ars_base.egg-info/PKG-INFO
+writing dependency_links to ars_base.egg-info/dependency_links.txt
+writing entry points to ars_base.egg-info/entry_points.txt
+writing requirements to ars_base.egg-info/requires.txt
+writing top-level names to ars_base.egg-info/top_level.txt
+writing manifest file 'ars_base.egg-info/SOURCES.txt'
+reading manifest file 'ars_base.egg-info/SOURCES.txt'
+writing manifest file 'ars_base.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/ty/ARS_Project/ars_ws/install/ars_base/lib/python3.12/site-packages/ars-base.egg-link (link to .)
+Installing serial_bridge script to /home/ty/ARS_Project/ars_ws/install/ars_base/lib/ars_base
+
+Installed /home/ty/ARS_Project/ars_ws/build/ars_base
+running symlink_data
+creating /home/ty/ARS_Project/ars_ws/install/ars_base/share/ament_index
+creating /home/ty/ARS_Project/ars_ws/install/ars_base/share/ament_index/resource_index
+creating /home/ty/ARS_Project/ars_ws/install/ars_base/share/ament_index/resource_index/packages
+symbolically linking /home/ty/ARS_Project/ars_ws/build/ars_base/resource/ars_base -> /home/ty/ARS_Project/ars_ws/install/ars_base/share/ament_index/resource_index/packages
+symbolically linking /home/ty/ARS_Project/ars_ws/build/ars_base/package.xml -> /home/ty/ARS_Project/ars_ws/install/ars_base/share/ars_base
+creating /home/ty/ARS_Project/ars_ws/install/ars_base/share/ars_base/launch
+symbolically linking /home/ty/ARS_Project/ars_ws/build/ars_base/launch/bringup.launch.py -> /home/ty/ARS_Project/ars_ws/install/ars_base/share/ars_base/launch
+symbolically linking /home/ty/ARS_Project/ars_ws/build/ars_base/launch/mapping.launch.py -> /home/ty/ARS_Project/ars_ws/install/ars_base/share/ars_base/launch
+symbolically linking /home/ty/ARS_Project/ars_ws/build/ars_base/launch/description.launch.py -> /home/ty/ARS_Project/ars_ws/install/ars_base/share/ars_base/launch
+creating /home/ty/ARS_Project/ars_ws/install/ars_base/share/ars_base/urdf
+symbolically linking /home/ty/ARS_Project/ars_ws/build/ars_base/urdf/ars_robot.urdf.xacro -> /home/ty/ARS_Project/ars_ws/install/ars_base/share/ars_base/urdf
+creating /home/ty/ARS_Project/ars_ws/install/ars_base/share/ars_base/config
+symbolically linking /home/ty/ARS_Project/ars_ws/build/ars_base/config/ars_base.yaml -> /home/ty/ARS_Project/ars_ws/install/ars_base/share/ars_base/config

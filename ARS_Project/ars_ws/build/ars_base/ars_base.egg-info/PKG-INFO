@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: ars-base
+Version: 0.1.0
+Summary: ARS mecanum base: Arduino serial bridge, URDF, and launch files.
+Maintainer: ty
+Maintainer-email: zhechengg20@gmail.com
+License: MIT

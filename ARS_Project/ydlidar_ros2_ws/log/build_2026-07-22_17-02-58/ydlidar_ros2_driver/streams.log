@@ -1,0 +1,117 @@
+[0.010s] Invoking command in '/home/ty/ARS_Project/ydlidar_ros2_ws/build/ydlidar_ros2_driver': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/ty/ARS_Project/ydlidar_ros2_ws/src/ydlidar_ros2_driver -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver
+[0.136s] -- The C compiler identification is GNU 13.3.0
+[0.236s] -- The CXX compiler identification is GNU 13.3.0
+[0.257s] -- Detecting C compiler ABI info
+[0.350s] -- Detecting C compiler ABI info - done
+[0.365s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.365s] -- Detecting C compile features
+[0.366s] -- Detecting C compile features - done
+[0.376s] -- Detecting CXX compiler ABI info
+[0.468s] -- Detecting CXX compiler ABI info - done
+[0.483s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.483s] -- Detecting CXX compile features
+[0.484s] -- Detecting CXX compile features - done
+[0.491s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.639s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.720s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.755s] -- Found rclcpp: 28.1.21 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.803s] -- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.819s] -- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.840s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.863s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.960s] -- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.963s] -- Found rmw_fastrtps_cpp: 8.4.4 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[1.046s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[1.067s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[1.091s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.191s] -- Found sensor_msgs: 5.3.8 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[1.267s] -- Found visualization_msgs: 5.3.8 (/opt/ros/jazzy/share/visualization_msgs/cmake)
+[1.304s] -- Found std_srvs: 5.3.8 (/opt/ros/jazzy/share/std_srvs/cmake)
+[1.335s] -- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[1.454s] -- Added test 'copyright' to check source files copyright and LICENSE
+[1.457s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.458s] -- Configured cppcheck include dirs: /home/ty/ARS_Project/ydlidar_ros2_ws/src/ydlidar_ros2_driver/src
+[1.458s] -- Configured cppcheck exclude dirs and/or files: 
+[1.461s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[1.461s] -- Configured cpplint exclude dirs and/or files: 
+[1.462s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.462s] -- Configured 'flake8' exclude dirs and/or files: 
+[1.464s] -- Added test 'lint_cmake' to check CMake code style
+[1.465s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.468s] -- Added test 'uncrustify' to check C / C++ code style
+[1.468s] -- Configured uncrustify additional arguments: 
+[1.469s] -- Added test 'xmllint' to check XML markup files
+[1.470s] -- Configuring done (1.4s)
+[1.487s] -- Generating done (0.0s)
+[1.494s] -- Build files have been written to: /home/ty/ARS_Project/ydlidar_ros2_ws/build/ydlidar_ros2_driver
+[1.504s] Invoked command in '/home/ty/ARS_Project/ydlidar_ros2_ws/build/ydlidar_ros2_driver' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/ty/ARS_Project/ydlidar_ros2_ws/src/ydlidar_ros2_driver -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver
+[1.505s] Invoking command in '/home/ty/ARS_Project/ydlidar_ros2_ws/build/ydlidar_ros2_driver': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/ty/ARS_Project/ydlidar_ros2_ws/build/ydlidar_ros2_driver -- -j8 -l8
+[1.552s] [ 25%] Building CXX object CMakeFiles/ydlidar_ros2_driver_node.dir/src/ydlidar_ros2_driver_node.cpp.o
+[1.560s] [ 50%] Building CXX object CMakeFiles/ydlidar_ros2_driver_client.dir/src/ydlidar_ros2_driver_client.cpp.o
+[3.937s] /home/ty/ARS_Project/ydlidar_ros2_ws/src/ydlidar_ros2_driver/src/ydlidar_ros2_driver_node.cpp: In lambda function:
+[3.937s] /home/ty/ARS_Project/ydlidar_ros2_ws/src/ydlidar_ros2_driver/src/ydlidar_ros2_driver_node.cpp:191:54: warning: unused parameter ‘request_header’ [-Wunused-parameter]
+[3.937s]   191 |     [&laser](const std::shared_ptr<rmw_request_id_t> request_header,
+[3.937s]       |              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+[3.937s] /home/ty/ARS_Project/ydlidar_ros2_ws/src/ydlidar_ros2_driver/src/ydlidar_ros2_driver_node.cpp:192:56: warning: unused parameter ‘req’ [-Wunused-parameter]
+[3.937s]   192 |   const std::shared_ptr<std_srvs::srv::Empty::Request> req,
+[3.937s]       |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+[3.937s] /home/ty/ARS_Project/ydlidar_ros2_ws/src/ydlidar_ros2_driver/src/ydlidar_ros2_driver_node.cpp:193:51: warning: unused parameter ‘response’ [-Wunused-parameter]
+[3.938s]   193 |   std::shared_ptr<std_srvs::srv::Empty::Response> response) -> bool
+[3.938s]       |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+[3.947s] /home/ty/ARS_Project/ydlidar_ros2_ws/src/ydlidar_ros2_driver/src/ydlidar_ros2_driver_node.cpp: In lambda function:
+[3.947s] /home/ty/ARS_Project/ydlidar_ros2_ws/src/ydlidar_ros2_driver/src/ydlidar_ros2_driver_node.cpp:201:54: warning: unused parameter ‘request_header’ [-Wunused-parameter]
+[3.948s]   201 |     [&laser](const std::shared_ptr<rmw_request_id_t> request_header,
+[3.948s]       |              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+[3.948s] /home/ty/ARS_Project/ydlidar_ros2_ws/src/ydlidar_ros2_driver/src/ydlidar_ros2_driver_node.cpp:202:56: warning: unused parameter ‘req’ [-Wunused-parameter]
+[3.948s]   202 |   const std::shared_ptr<std_srvs::srv::Empty::Request> req,
+[3.948s]       |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+[3.948s] /home/ty/ARS_Project/ydlidar_ros2_ws/src/ydlidar_ros2_driver/src/ydlidar_ros2_driver_node.cpp:203:51: warning: unused parameter ‘response’ [-Wunused-parameter]
+[3.948s]   203 |   std::shared_ptr<std_srvs::srv::Empty::Response> response) -> bool
+[3.948s]       |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+[7.880s] [ 75%] Linking CXX executable ydlidar_ros2_driver_node
+[8.190s] [ 75%] Built target ydlidar_ros2_driver_node
+[9.188s] [100%] Linking CXX executable ydlidar_ros2_driver_client
+[9.461s] [100%] Built target ydlidar_ros2_driver_client
+[9.472s] Invoked command in '/home/ty/ARS_Project/ydlidar_ros2_ws/build/ydlidar_ros2_driver' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/ty/ARS_Project/ydlidar_ros2_ws/build/ydlidar_ros2_driver -- -j8 -l8
+[9.481s] Invoking command in '/home/ty/ARS_Project/ydlidar_ros2_ws/build/ydlidar_ros2_driver': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/ty/ARS_Project/ydlidar_ros2_ws/build/ydlidar_ros2_driver
+[9.488s] -- Install configuration: ""
+[9.489s] -- Execute custom install script
+[9.489s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/lib/ydlidar_ros2_driver/ydlidar_ros2_driver_node
+[9.496s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/lib/ydlidar_ros2_driver/ydlidar_ros2_driver_client
+[9.504s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/launch/ydlidar.py
+[9.511s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/launch/ydlidar_launch.py
+[9.518s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/launch/ydlidar_launch_view.py
+[9.525s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/G1.yaml
+[9.532s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/G2.yaml
+[9.539s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/G4.yaml
+[9.546s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/G6.yaml
+[9.553s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/GS2.yaml
+[9.560s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/GS5.yaml
+[9.568s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/TEA.yaml
+[9.576s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/TG.yaml
+[9.583s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/Tmini-Plus-SH.yaml
+[9.591s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/Tmini.yaml
+[9.598s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/X2.yaml
+[9.606s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/X3.yaml
+[9.613s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/X4-Pro.yaml
+[9.620s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/X4.yaml
+[9.627s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/sdm15.yaml
+[9.635s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/params/ydlidar.yaml
+[9.642s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/startup/initenv.sh
+[9.650s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/config/ydlidar.rviz
+[9.657s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ament_index/resource_index/package_run_dependencies/ydlidar_ros2_driver
+[9.664s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ament_index/resource_index/parent_prefix_path/ydlidar_ros2_driver
+[9.673s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/environment/ament_prefix_path.sh
+[9.680s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/environment/ament_prefix_path.dsv
+[9.687s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/environment/path.sh
+[9.695s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/environment/path.dsv
+[9.702s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/local_setup.bash
+[9.709s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/local_setup.sh
+[9.716s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/local_setup.zsh
+[9.723s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/local_setup.dsv
+[9.730s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/package.dsv
+[9.737s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ament_index/resource_index/packages/ydlidar_ros2_driver
+[9.744s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/cmake/ydlidar_ros2_driverConfig.cmake
+[9.751s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/cmake/ydlidar_ros2_driverConfig-version.cmake
+[9.758s] -- Symlinking: /home/ty/ARS_Project/ydlidar_ros2_ws/install/ydlidar_ros2_driver/share/ydlidar_ros2_driver/package.xml
+[9.767s] Invoked command in '/home/ty/ARS_Project/ydlidar_ros2_ws/build/ydlidar_ros2_driver' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/ty/ARS_Project/ydlidar_ros2_ws/build/ydlidar_ros2_driver

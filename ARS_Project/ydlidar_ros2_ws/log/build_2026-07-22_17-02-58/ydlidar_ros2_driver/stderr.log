@@ -1,0 +1,20 @@
+/home/ty/ARS_Project/ydlidar_ros2_ws/src/ydlidar_ros2_driver/src/ydlidar_ros2_driver_node.cpp: In lambda function:
+/home/ty/ARS_Project/ydlidar_ros2_ws/src/ydlidar_ros2_driver/src/ydlidar_ros2_driver_node.cpp:191:54: warning: unused parameter ‘request_header’ [-Wunused-parameter]
+  191 |     [&laser](const std::shared_ptr<rmw_request_id_t> request_header,
+      |              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+/home/ty/ARS_Project/ydlidar_ros2_ws/src/ydlidar_ros2_driver/src/ydlidar_ros2_driver_node.cpp:192:56: warning: unused parameter ‘req’ [-Wunused-parameter]
+  192 |   const std::shared_ptr<std_srvs::srv::Empty::Request> req,
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+/home/ty/ARS_Project/ydlidar_ros2_ws/src/ydlidar_ros2_driver/src/ydlidar_ros2_driver_node.cpp:193:51: warning: unused parameter ‘response’ [-Wunused-parameter]
+  193 |   std::shared_ptr<std_srvs::srv::Empty::Response> response) -> bool
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+/home/ty/ARS_Project/ydlidar_ros2_ws/src/ydlidar_ros2_driver/src/ydlidar_ros2_driver_node.cpp: In lambda function:
+/home/ty/ARS_Project/ydlidar_ros2_ws/src/ydlidar_ros2_driver/src/ydlidar_ros2_driver_node.cpp:201:54: warning: unused parameter ‘request_header’ [-Wunused-parameter]
+  201 |     [&laser](const std::shared_ptr<rmw_request_id_t> request_header,
+      |              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+/home/ty/ARS_Project/ydlidar_ros2_ws/src/ydlidar_ros2_driver/src/ydlidar_ros2_driver_node.cpp:202:56: warning: unused parameter ‘req’ [-Wunused-parameter]
+  202 |   const std::shared_ptr<std_srvs::srv::Empty::Request> req,
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+/home/ty/ARS_Project/ydlidar_ros2_ws/src/ydlidar_ros2_driver/src/ydlidar_ros2_driver_node.cpp:203:51: warning: unused parameter ‘response’ [-Wunused-parameter]
+  203 |   std::shared_ptr<std_srvs::srv::Empty::Response> response) -> bool
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~

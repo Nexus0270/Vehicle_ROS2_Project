@@ -1,0 +1,9 @@
+source;share/ars_base/hook/pythonpath.ps1
+source;share/ars_base/hook/pythonpath.dsv
+source;share/ars_base/hook/pythonpath.sh
+source;share/ars_base/hook/ament_prefix_path.ps1
+source;share/ars_base/hook/ament_prefix_path.dsv
+source;share/ars_base/hook/ament_prefix_path.sh
+source;../../build/ars_base/share/ars_base/hook/pythonpath_develop.ps1
+source;../../build/ars_base/share/ars_base/hook/pythonpath_develop.dsv
+source;../../build/ars_base/share/ars_base/hook/pythonpath_develop.sh
